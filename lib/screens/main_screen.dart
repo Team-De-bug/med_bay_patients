@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:med_bay_patients/components/navigation_drawer_widget.dart';
+import 'package:med_bay_patients/components/rounded_button.dart';
+import 'package:med_bay_patients/constants.dart';
+import 'package:med_bay_patients/screens/prescription_screen.dart';
 
 class MainScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -13,16 +17,55 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: NavigationDrawerwidget(),
-      backgroundColor: Color(0xffe00043),
-      appBar: AppBar(
-        title: Text('Med-Bay'),
-        backgroundColor: Color(0xffB30035),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(FontAwesomeIcons.notesMedical),
+        backgroundColor: kRed,
+        onPressed: () {
+          Navigator.pushNamed(context, PrescriptionScreen.id);
+        },
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            Text('Declare Emergency')
-          ],
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Padding(
+          padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width / 4.5,
+          ),
+          child: Image.asset(
+            "images/med_bay.png",
+            fit: BoxFit.contain,
+            height: 72,
+          ),
+        ),
+        backgroundColor: kDRed,
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.only(top: 25, left: 55),
+          child: Column(
+            children: <Widget>[
+              Text(
+                'Declare Emergency',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Rubik',
+                  fontSize: 32.0,
+                ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height / 4,
+              ),
+              RoundedButton(
+                title: 'EMERGENCY',
+                color: kRed,
+                fontSize: 32.0,
+                height: 64,
+                onPressed: () {
+                  // ignore: todo
+                  print('Button: Emegency'); //TODO: api key connection needed
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

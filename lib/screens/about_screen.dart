@@ -16,10 +16,10 @@ class _AboutScreenState extends State<AboutScreen> {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return Scaffold(
-      backgroundColor: Color(0xffe00043),
+      backgroundColor: kRed,
       appBar: AppBar(
         title: Text('About'),
-        backgroundColor: Color(0xffB30035),
+        backgroundColor: kDRed,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -29,7 +29,7 @@ class _AboutScreenState extends State<AboutScreen> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(top: 50, left: 60),
+          padding: EdgeInsets.only(top: 50, left: 50),
           child: Column(
             children: <Widget>[
               Text(
@@ -42,7 +42,7 @@ class _AboutScreenState extends State<AboutScreen> {
                 ),
               ),
               SizedBox(
-                height: 50,
+                height: 40,
               ),
               Material(
                 borderRadius: BorderRadius.circular(16.0),
@@ -148,7 +148,7 @@ class _AboutScreenState extends State<AboutScreen> {
                 ),
               ),
               SizedBox(
-                height: 50,
+                height: 20,
               ),
               Material(
                 child: Container(

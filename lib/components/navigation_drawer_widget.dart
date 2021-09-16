@@ -21,6 +21,7 @@ class NavigationDrawerwidget extends StatelessWidget {
               RoundedButton(
                 color: Color(0xffB30035),
                 title: 'Settings',
+                fontSize: 16.0,
                 onPressed: () {
                   Navigator.pushNamed(context, SettingsScreen.id);
                 },
@@ -28,6 +29,7 @@ class NavigationDrawerwidget extends StatelessWidget {
               RoundedButton(
                 color: Color(0xffB30035),
                 title: 'About',
+                fontSize: 16.0,
                 onPressed: () {
                   Navigator.pushNamed(context, AboutScreen.id);
                 },

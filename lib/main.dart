@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:med_bay_patients/screens/about_screen.dart';
 import 'package:med_bay_patients/screens/main_screen.dart';
+import 'package:med_bay_patients/screens/prescription_screen.dart';
 import 'package:med_bay_patients/screens/settings_screen.dart';
 
 void main() {
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       routes: {
         MainScreen.id: (context) => MainScreen(),
         SettingsScreen.id: (context) => SettingsScreen(),
-        AboutScreen.id: (context) => AboutScreen()
+        AboutScreen.id: (context) => AboutScreen(),
+        PrescriptionScreen.id: (context) => PrescriptionScreen()
       },
     );
   }
