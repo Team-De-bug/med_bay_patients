@@ -3,7 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:med_bay_patients/components/navigation_drawer_widget.dart';
 import 'package:med_bay_patients/components/rounded_button.dart';
 import 'package:med_bay_patients/constants.dart';
-import 'package:med_bay_patients/screens/prescription_screen.dart';
+import 'package:med_bay_patients/screens/loading_screen.dart';
+import 'package:med_bay_patients/services/location.dart';
 
 class MainScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -13,6 +14,11 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  Future<dynamic> getLocation() async {
+    Location location = Location();
+    await location.getCurrentLocation();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
         child: Icon(FontAwesomeIcons.notesMedical),
         backgroundColor: kRed,
         onPressed: () {
-          Navigator.pushNamed(context, PrescriptionScreen.id);
+          Navigator.pushNamed(context, LoadingScreen.id);
         },
       ),
       backgroundColor: Colors.white,
@@ -61,7 +67,8 @@ class _MainScreenState extends State<MainScreen> {
                 height: 64,
                 onPressed: () {
                   // ignore: todo
-                  print('Button: Emegency'); //TODO: api key connection needed
+                  print('Button: Emegency');
+                  getLocation(); //TODO: api key connection needed
                 },
               )
             ],
