@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:med_bay_patients/constants.dart';
 import 'package:med_bay_patients/screens/prescription_screen.dart';
 import 'package:med_bay_patients/services/prescription.dart';
 
@@ -22,6 +23,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void getPrescData() async {
     var prescriptionData = await PrescriptionModel().getPrescription('you');
 
+    Navigator.pop(context);
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return PrescriptionScreen(
         prescData: prescriptionData,
@@ -32,6 +34,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kRed,
       body: Center(
         child: SpinKitDoubleBounce(
           color: Colors.white,

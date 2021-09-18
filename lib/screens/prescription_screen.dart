@@ -16,24 +16,25 @@ class PrescriptionScreen extends StatefulWidget {
 class _PrescriptionScreenState extends State<PrescriptionScreen> {
   PrescriptionModel prescription = PrescriptionModel();
 
-  late int id;
-  late String status;
-  late String bill;
-  late int caseNo;
+  Map<int, dynamic> dataDict = {};
+  // var sNo = [];
+  // var medicine = [];
+  var quantity = [];
+
+  @override
+  void initState() {
+    super.initState();
+    updateUI(widget.prescData);
+  }
 
   void updateUI(dynamic prescData) {
     setState(() {
-      if (prescData == null) {
-        id = 0;
-        status = 'Error';
-        bill = 'null';
-        caseNo = 0;
-        return;
+      for (int i = 0; i < prescData.length; i++) {
+        var name = prescData[i]['item']['name'].toString();
+        var qty = prescData[i]['quantity'].toString();
+        dataDict[i + 1] = {"name": name, "qty": qty};
       }
-      id = prescData['id'];
-      status = prescData['status'];
-      bill = prescData['bill'];
-      caseNo = prescData['case'];
+      print(dataDict);
     });
   }
 
@@ -48,6 +49,71 @@ class _PrescriptionScreenState extends State<PrescriptionScreen> {
             Navigator.pop(context);
           },
           icon: Icon(Icons.arrow_back),
+        ),
+      ),
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.only(left: 10, right: 10),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Theme(
+                data: Theme.of(context).copyWith(
+                  dividerColor: Colors.black,
+                ),
+                child: DataTable(
+                  columns: const <DataColumn>[
+                    DataColumn(
+                      label: Text(
+                        'S.No',
+                        style: kDataTextStyle,
+                      ),
+                    ),
+                    DataColumn(
+                      label: Text(
+                        'Medicine',
+                        style: kDataTextStyle,
+                      ),
+                    ),
+                    DataColumn(
+                      label: Text(
+                        'Qty.',
+                        style: kDataTextStyle,
+                      ),
+                    ),
+                  ],
+                  rows: dataDict.entries
+                      .map(
+                        (e) => DataRow(
+                          cells: [
+                            DataCell(
+                              Text(
+                                e.key.toString(),
+                                style: kDataTextStyle,
+                              ),
+                            ),
+                            DataCell(
+                              Text(
+                                e.value['name'],
+                                style: kDataTextStyle,
+                              ),
+                            ),
+                            DataCell(
+                              Text(
+                                e.value['qty'].toString(),
+                                style: kDataTextStyle,
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     );

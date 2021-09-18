@@ -9,3 +9,9 @@ const kAboutTextStyle = TextStyle(
 const kRed = Color(0xffe00043);
 
 const kDRed = Color(0xffB30035);
+
+const kDataTextStyle = TextStyle(
+  color: Colors.black,
+  fontFamily: 'Rubik',
+  fontWeight: FontWeight.bold,
+);
