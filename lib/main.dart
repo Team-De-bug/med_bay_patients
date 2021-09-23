@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:med_bay_patients/screens/about_screen.dart';
+import 'package:med_bay_patients/screens/admin_login_screen.dart';
 import 'package:med_bay_patients/screens/loading_screen.dart';
 import 'package:med_bay_patients/screens/main_screen.dart';
-import 'package:med_bay_patients/screens/settings_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
       initialRoute: MainScreen.id,
       routes: {
         MainScreen.id: (context) => MainScreen(),
-        SettingsScreen.id: (context) => SettingsScreen(),
         AboutScreen.id: (context) => AboutScreen(),
-        LoadingScreen.id: (context) => LoadingScreen()
+        LoadingScreen.id: (context) => LoadingScreen(),
+        AdminLoginScreen.id: (context) => AdminLoginScreen(),
       },
     );
   }

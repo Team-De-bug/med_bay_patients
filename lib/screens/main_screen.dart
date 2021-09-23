@@ -68,7 +68,7 @@ class _MainScreenState extends State<MainScreen> {
                 onPressed: () {
                   // ignore: todo
                   print('Button: Emegency');
-                  getLocation(); //TODO: api key connection needed
+                  getLocation();
                 },
               )
             ],

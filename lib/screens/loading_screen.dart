@@ -4,6 +4,8 @@ import 'package:med_bay_patients/constants.dart';
 import 'package:med_bay_patients/screens/prescription_screen.dart';
 import 'package:med_bay_patients/services/prescription.dart';
 
+const int patientId = 16;
+
 class LoadingScreen extends StatefulWidget {
   static const String id = 'location_screen';
 
@@ -21,14 +23,17 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getPrescData() async {
-    var prescriptionData = await PrescriptionModel().getPrescription('you');
+    var prescriptionData = await PrescriptionModel().getPrescription(patientId);
 
     Navigator.pop(context);
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return PrescriptionScreen(
-        prescData: prescriptionData,
-      );
-    }));
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return PrescriptionScreen(
+          prescData: prescriptionData,
+        );
+      }),
+    );
   }
 
   @override

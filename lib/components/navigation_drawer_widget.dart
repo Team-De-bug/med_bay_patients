@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:med_bay_patients/components/rounded_button.dart';
 import 'package:med_bay_patients/screens/about_screen.dart';
-import 'package:med_bay_patients/screens/settings_screen.dart';
+import 'package:med_bay_patients/screens/admin_login_screen.dart';
 
 class NavigationDrawerwidget extends StatelessWidget {
   @override
@@ -23,7 +23,7 @@ class NavigationDrawerwidget extends StatelessWidget {
                 title: 'Settings',
                 fontSize: 16.0,
                 onPressed: () {
-                  Navigator.pushNamed(context, SettingsScreen.id);
+                  Navigator.pushNamed(context, AdminLoginScreen.id);
                 },
               ),
               RoundedButton(
