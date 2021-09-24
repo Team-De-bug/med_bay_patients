@@ -17,9 +17,21 @@ const kDataTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const kTextFieldTextStyle = TextStyle(
+  color: Colors.black,
+  fontFamily: 'Rubik',
+  fontSize: 18.0,
+);
+
+const kDBlue = Color(0xFF215A82);
+
+const KDBlueActive = Color(0xFF889CAA);
+
+const kBaseBlue = Color(0xFF2B82BF);
+
 const kTextInputStyle = InputDecoration(
   filled: true,
-  fillColor: kDRed,
+  fillColor: Colors.white,
   icon: FaIcon(
     FontAwesomeIcons.user,
     color: Colors.white,
@@ -34,5 +46,4 @@ const kTextInputStyle = InputDecoration(
     ),
     borderSide: BorderSide.none,
   ),
-  
 );
