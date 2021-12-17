@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:med_bay_patients/components/rounded_button.dart';
 import 'package:med_bay_patients/constants.dart';
 import 'package:med_bay_patients/screens/settings_screen.dart';
@@ -39,7 +38,7 @@ class _AdminLoginScreenState extends State<AdminLoginScreen> {
         ),
         backgroundColor: kDRed,
       ),
-      backgroundColor: Color(0xffe00043),
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -94,10 +93,10 @@ class _AdminLoginScreenState extends State<AdminLoginScreen> {
                           },
                           decoration: kTextInputStyle.copyWith(
                             hintText: 'User Name',
-                            icon: FaIcon(
-                              FontAwesomeIcons.user,
-                              color: Colors.white,
-                            ),
+                            // icon: FaIcon(
+                            //   FontAwesomeIcons.user,
+                            //   color: Colors.white,
+                            // ),
                           ),
                           style: kTextFieldTextStyle,
                         ),
@@ -112,10 +111,10 @@ class _AdminLoginScreenState extends State<AdminLoginScreen> {
                           },
                           decoration: kTextInputStyle.copyWith(
                             hintText: 'Password',
-                            icon: Icon(
-                              Icons.password,
-                              color: Colors.white,
-                            ),
+                            // icon: Icon(
+                            //   Icons.password,
+                            //   color: Colors.white,
+                            // ),
                           ),
                           style: kTextFieldTextStyle,
                         ),

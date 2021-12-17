@@ -5,6 +5,7 @@ import 'package:med_bay_patients/components/rounded_button.dart';
 import 'package:med_bay_patients/constants.dart';
 import 'package:med_bay_patients/screens/loading_screen.dart';
 import 'package:med_bay_patients/services/location.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MainScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
@@ -20,12 +21,26 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    getBoolValuesSF();
+  }
+
+  getBoolValuesSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //Return bool
+    setState(() {
+      MainTheme().isDark = prefs.getBool('darkMode') ?? false;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: NavigationDrawerwidget(),
       floatingActionButton: FloatingActionButton(
         child: Icon(FontAwesomeIcons.notesMedical),
-        backgroundColor: kRed,
+        // backgroundColor: MainTheme().isDark ? kBaseBlueDarkM : kRed,
         onPressed: () {
           Navigator.pushNamed(context, LoadingScreen.id);
         },
@@ -42,7 +57,7 @@ class _MainScreenState extends State<MainScreen> {
             height: 72,
           ),
         ),
-        backgroundColor: kDRed,
+        // backgroundColor: kDRed,
       ),
       body: SafeArea(
         child: Padding(
@@ -77,4 +92,8 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
   }
+}
+
+class MainTheme {
+  bool isDark = false;
 }
